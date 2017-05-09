@@ -1,0 +1,9 @@
+Cython==0.23.5
+voluptuous
+numpy
+scipy
+progress
+instapush
+pyyaml
+scoop
+networkx

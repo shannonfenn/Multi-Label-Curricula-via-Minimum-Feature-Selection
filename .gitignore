@@ -1,0 +1,15 @@
+.cache/
+build/
+test_results/
+*.egg-info/
+*_build.log
+*.c
+*.cpp
+*.so
+py*.cpp
+*.pyc
+*.html
+*.pytest.restart
+compilelog
+*_bak.*
+
