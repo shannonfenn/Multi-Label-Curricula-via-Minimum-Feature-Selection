@@ -29,48 +29,6 @@ def initialise_logging(settings, result_dir):
                         level=log_level)
 
 
-def initialise_notifications(args):
-    if args.notify:
-        try:
-            import requests
-            import instapush
-            try:
-                with open(args.ip_config) as f:
-                    ip_settings = yaml.load(f, Loader=yaml.CSafeLoader)
-                appid = ip_settings['appid']
-                secret = ip_settings['secret']
-                return instapush.App(appid=appid, secret=secret)
-            except FileNotFoundError:
-                print('Instapush config not found: {}'.format(args.ip_config))
-            except yaml.YAMLError as err:
-                print('Invalid instapush config: {}'.format(err))
-            except requests.exceptions.RequestException as err:
-                print('Failed to initialise notifications: {}'.format(err))
-        except ImportError as err:
-            print('Failed to import notification APIs: {}'.format(err))
-        # disable notifications in the event of any errors
-        print('Notifications disabled.\n')
-        return None
-    else:
-        return None
-
-
-def notify(notifier, settings, total_time, notes='none'):
-    if notifier is not None:
-        import requests
-        try:
-            message = {'name': str(settings['name']),
-                       'time': str(total_time),
-                       'num warnings': str(0),  # not implemented
-                       'notes': str(notes)}
-            ret = notifier.notify(event_name='experiment_complete',
-                                  trackers=message)
-            if ret.get('error', False):
-                print('Notification error: {}'.format(ret))
-        except requests.exceptions.RequestException as err:
-            print('Failed to send notification: {}.'.format(err))
-
-
 def parse_arguments():
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('experiment',
@@ -80,13 +38,8 @@ def parse_arguments():
                         default=8, choices=range(0, 17),
                         help='how many parallel processes to use (give 0 for '
                              'scoop).')
-    parser.add_argument('-p', '--notify', action='store_true',
-                        help='enable push notifications.')
-    parser.add_argument('-c', '--ip-config', metavar='file', type=str,
-                        default='instapush.cfg',
-                        help='instapush config file path (for notifications).')
     parser.add_argument('-r', '--result-dir', type=str, metavar='dir',
-                        default='HMRI/experiments/results',
+                        default='experiments/results',
                         help='directory to store results in (in own subdir).')
     parser.add_argument('-b', '--batch-mode', action='store_true',
                         help='suppress progress bars.')
@@ -208,8 +161,6 @@ def main():
 
     args = parse_arguments()
 
-    notifier = initialise_notifications(args)
-
     settings, result_dir = initialise(args)
 
     # initialise logging
@@ -242,8 +193,6 @@ def main():
         total_time = time() - start_time
 
         print('Runs completed in {}s.'.format(total_time))
-
-        notify(notifier, settings, total_time)
 
     finally:
         logging.shutdown()

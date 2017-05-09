@@ -1,0 +1,24 @@
+name: 4_input_AND
+Ne: 16
+tests:
+  - {order: 'lsb', function: 'e1', value: 0.0625}
+  - {order: 'lsb', function: 'e2', value: 0.0625}
+  - {order: 'msb', function: 'e2', value: 0.0625}
+  - {order: 'lsb', function: 'e3', value: 0.0625}
+  - {order: 'msb', function: 'e3', value: 0.0625}
+  - {order: 'lsb', function: 'e4', value: 0.0625}
+  - {order: 'msb', function: 'e4', value: 0.0625}
+  - {order: 'lsb', function: 'e5', value: 0.0625}
+  - {order: 'msb', function: 'e5', value: 0.0625}
+  - {order: 'lsb', function: 'e6', value: 0.0625}
+  - {order: 'msb', function: 'e6', value: 0.0625}
+  - {order: 'lsb', function: 'e7', value: 1.0}
+  - {order: 'msb', function: 'e7', value: 1.0}
+  - {order: 'lsb', function: 'e1_mcc', value: 0.875}
+  - {order: 'lsb', function: 'e2_mcc', value: 0.875}
+  - {order: 'msb', function: 'e2_mcc', value: 0.875}
+  - {order: 'lsb', function: 'e6_mcc', value: 0.875}
+  - {order: 'msb', function: 'e6_mcc', value: 0.875}
+  - {order: 'lsb', function: 'correctness', value: 0.9375}
+  - {order: 'lsb', function: 'per_output_error', value: [0.0625]}
+  - {order: 'lsb', function: 'per_output_mcc', value: [0.875]}

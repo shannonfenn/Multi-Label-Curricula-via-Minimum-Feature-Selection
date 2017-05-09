@@ -1,0 +1,43 @@
+---
+name: yeast
+
+# common params
+base_config:
+  data: 
+    type: file
+    filename: experiments/datasets/functions/yeast.npz
+
+  sampling:
+    type: file
+    filename: experiments/datasets/samples/yeast-even.npy
+
+  learner: 
+    name: basic
+    target_order: auto
+    minfs_selection_metric: cardinality>first
+    
+    network:
+      method: generated
+      Ng: 38n
+      node_funcs: [7]
+    
+    optimiser:
+      name:             LAHC
+      guiding_function: e1
+      cost_list_length: 250
+      max_restarts:     2
+      max_iterations:   400000000
+
+  log_keys: [['samples', False, ['mapping', 'training_indices']]]
+
+# common params
+product:
+  - 
+    - {}  # repeat twice
+    - {}
+  -
+    - {notes: {0: 'r1 e1'}, data: {targets: [0, 2, 3, 1, 5, 8]}, learner: {optimiser: {guiding_function: e1}}}
+    - {notes: {0: 'r1 e2'}, data: {targets: [0, 2, 3, 1, 5, 8]}, learner: {optimiser: {guiding_function: e2}}}
+    - {notes: {0: 'r1 e3'}, data: {targets: [0, 2, 3, 1, 5, 8]}, learner: {optimiser: {guiding_function: e3}}}
+    - {notes: {0: 'r1 e6'}, data: {targets: [0, 2, 3, 1, 5, 8]}, learner: {optimiser: {guiding_function: e6}}}
+...

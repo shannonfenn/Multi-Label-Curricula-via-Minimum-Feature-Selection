@@ -1,0 +1,67 @@
+---
+name: single gate zero
+invariant under single move: yes
+invariant under multiple moves: yes
+Ni: 2
+'No': 1
+gates: [[0, 1, 7]]
+max depths: [1]
+# state can be extracted from full state table
+samples: [1, 2]
+target function: zero
+target matrix: 
+    full:
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+activation matrix:  
+# includes input (first Ni cols) and output (last No cols)
+    full:
+        - [0, 0, 1]
+        - [1, 0, 1]
+        - [0, 1, 1]
+        - [1, 1, 0]
+error matrix:
+    full:
+        - [1]
+        - [1]
+        - [1]
+        - [0]
+instances:
+    sample:
+         - {function: e1, value: 1.0}
+         - {function: e2, value: 1.0}
+         - {function: e3, value: 1.0}
+         - {function: e7, value: 1.0}
+         - {function: e4, value: 1.0}
+         - {function: e5, value: 1.0}
+         - {function: e6, value: 1.0}
+         - {function: correctness, value: 0.0}
+         - {function: e1_mcc, value: -1.0}
+         - {function: per_output_error, value: [1.0]}
+         - {function: per_output_mcc, value: [-1.0]}
+    test:
+         - {function: e1, value: 0.5}
+         - {function: e2, value: 0.5}
+         - {function: e3, value: 0.5}
+         - {function: e7, value: 1.0}
+         - {function: e4, value: 1.0}
+         - {function: e5, value: 1.0}
+         - {function: e6, value: 0.5}
+         - {function: correctness, value: 0.5}
+         - {function: e1_mcc, value: 0.0}
+         - {function: per_output_error, value: [0.5]}
+         - {function: per_output_mcc, value: [0.0]}
+    full:
+         - {function: e1, value: 0.75}
+         - {function: e2, value: 0.75}
+         - {function: e3, value: 0.75}
+         - {function: e7, value: 1.0}
+         - {function: e4, value: 1.0}
+         - {function: e5, value: 1.0}
+         - {function: e6, value: 0.75}
+         - {function: correctness, value: 0.25}
+         - {function: e1_mcc, value: -0.5}
+         - {function: per_output_error, value: [0.75]}
+         - {function: per_output_mcc, value: [-0.5]}

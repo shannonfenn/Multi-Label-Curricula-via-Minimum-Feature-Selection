@@ -1,0 +1,89 @@
+---
+name: single layer zero
+invariant under single move: yes
+invariant under multiple moves: yes
+Ni: 4
+'No': 2
+gates: [[0, 1, 7], [2, 3, 7]]
+max depths: [1, 1]
+# state can be extracted from full state table
+samples: [0, 2, 6, 8, 9, 10, 14, 15]
+
+target function: zero
+target matrix: 
+    full:
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+activation matrix:   
+# includes input (first Ni cols) and output (last No cols)
+    full:
+        - [0, 0, 0, 0, 1, 1]
+        - [1, 0, 0, 0, 1, 1]
+        - [0, 1, 0, 0, 1, 1]
+        - [1, 1, 0, 0, 0, 1]
+        - [0, 0, 1, 0, 1, 1]
+        - [1, 0, 1, 0, 1, 1]
+        - [0, 1, 1, 0, 1, 1]
+        - [1, 1, 1, 0, 0, 1]
+        - [0, 0, 0, 1, 1, 1]
+        - [1, 0, 0, 1, 1, 1]
+        - [0, 1, 0, 1, 1, 1]
+        - [1, 1, 0, 1, 0, 1]
+        - [0, 0, 1, 1, 1, 0]
+        - [1, 0, 1, 1, 1, 0]
+        - [0, 1, 1, 1, 1, 0]
+        - [1, 1, 1, 1, 0, 0]
+error matrix: 
+    full:
+        [[1, 1], [1, 1], [1, 1], [0, 1], [1, 1], [1, 1], [1, 1], [0, 1], [1, 1], [1, 1], [1, 1], [0, 1], [1, 0], [1, 0], [1, 0], [0, 0]]
+
+instances:
+    sample: 
+         - {function: e1, value: 0.8125}
+         - {function: e2, value: 0.8333333333333334}
+         - {function: e3, value: 0.875}
+         - {function: e7, value: 1.0}
+         - {function: e4, value: 1.0}
+         - {function: e5, value: 1.0}
+         - {function: e6, value: 0.9375}
+         - {function: correctness, value: 0.125}
+         - {function: e1_mcc, value: -0.625}
+         - {function: per_output_error, value: [0.875, 0.75]}
+         - {function: per_output_mcc, value: [-0.75, -0.5]}
+    test: 
+         - {function: e1, value: 0.6875}
+         - {function: e2, value: 0.6666666666666666}
+         - {function: e3, value: 0.8125}
+         - {function: e7, value: 1.0}
+         - {function: e4, value: 1.0}
+         - {function: e5, value: 1.0}
+         - {function: e6, value: 0.8125}
+         - {function: correctness, value: 0.0}
+         - {function: e1_mcc, value: -0.375}
+         - {function: per_output_error, value: [0.625, 0.75]}
+         - {function: per_output_mcc, value: [-0.25, -0.5]}
+    full: 
+         - {function: e1, value: 0.75}
+         - {function: e2, value: 0.75}
+         - {function: e3, value: 0.84375}
+         - {function: e7, value: 1.0}
+         - {function: e4, value: 1.0}
+         - {function: e5, value: 1.0}
+         - {function: e6, value: 0.875}
+         - {function: correctness, value: 0.0625}
+         - {function: e1_mcc, value: -0.5}
+         - {function: per_output_error, value: [0.75, 0.75]}
+         - {function: per_output_mcc, value: [-0.5, -0.5]}
+
+multiple_moves_test_case:
+    - move: {gate: 0, new_source: 1, terminal: False}
+      expected: [[1, 1], [1, 1], [0, 1], [0, 1], [1, 1], [1, 1], [0, 1], [0, 1], [1, 1], [1, 1], [0, 1], [0, 1], [1, 0], [1, 0], [0, 0], [0, 0]]
+    - move: {gate: 1, new_source: 0, terminal: True}
+      expected: [[1, 1], [1, 1], [0, 1], [0, 1], [1, 1], [1, 0], [0, 1], [0, 0], [1, 1], [1, 1], [0, 1], [0, 1], [1, 1], [1, 0], [0, 1], [0, 0]]
+    - move: {gate: 0, new_source: 0, terminal: True}
+      expected: [[1, 1], [1, 1], [1, 1], [0, 1], [1, 1], [1, 0], [1, 1], [0, 0], [1, 1], [1, 1], [1, 1], [0, 1], [1, 1], [1, 0], [1, 1], [0, 0]]
+    - move: {gate: 1, new_source: 3, terminal: True}
+      expected: [[1, 1], [1, 1], [1, 1], [0, 1], [1, 1], [1, 1], [1, 1], [0, 1], [1, 1], [1, 1], [1, 1], [0, 1], [1, 0], [1, 0], [1, 0], [0, 0]]
+    - move: {gate: 1, new_source: 4, terminal: True}
+      expected: [[1, 1], [1, 1], [1, 1], [0, 1], [1, 0], [1, 0], [1, 0], [0, 1], [1, 1], [1, 1], [1, 1], [0, 1], [1, 0], [1, 0], [1, 0], [0, 1]]
+    - move: {gate: 1, new_source: 4, terminal: False}
+      expected: [[1, 0], [1, 0], [1, 0], [0, 1], [1, 0], [1, 0], [1, 0], [0, 1], [1, 0], [1, 0], [1, 0], [0, 1], [1, 0], [1, 0], [1, 0], [0, 1]]

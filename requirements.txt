@@ -3,7 +3,6 @@ voluptuous
 numpy
 scipy
 progress
-instapush
 pyyaml
 scoop
 networkx

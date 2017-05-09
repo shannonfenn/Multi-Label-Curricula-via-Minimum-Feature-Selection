@@ -1,0 +1,49 @@
+---
+name: cpar7
+
+# common params
+base_config:
+  data: 
+    type: file
+    filename: experiments/datasets/functions/cpar7.npz
+
+  sampling:
+    type: generated
+    Ns: 1000
+
+  learner: 
+    name: basic
+    target_order: lsb
+    network:
+      method: generated
+      Ng: 21n
+      node_funcs: [7]
+    optimiser:
+      name:             LAHC
+      cost_list_length: 1000
+      max_iterations :  256000000
+      max_restarts:     20
+
+product:
+  - 
+    - {learner: {optimiser: {guiding_function: e1}}}
+    - {learner: {optimiser: {guiding_function: e2}}}
+    - {learner: {optimiser: {guiding_function: e3}}}
+    - {learner: {optimiser: {guiding_function: e6}}}
+    - {learner: {optimiser: {guiding_function: e6}, target_order: auto, minfs_selection_metric: cardinality>random}}
+  -
+    - {sampling: {Ne: 112}}
+    - {sampling: {Ne: 104}} 
+    - {sampling: {Ne: 96}} 
+    - {sampling: {Ne: 88}} 
+    - {sampling: {Ne: 80}} 
+    - {sampling: {Ne: 72}} 
+    - {sampling: {Ne: 64}} 
+    - {sampling: {Ne: 56}} 
+    - {sampling: {Ne: 48}} 
+    - {sampling: {Ne: 40}} 
+    - {sampling: {Ne: 32}} 
+    - {sampling: {Ne: 24}} 
+    - {sampling: {Ne: 16}} 
+    - {sampling: {Ne: 8}} 
+...

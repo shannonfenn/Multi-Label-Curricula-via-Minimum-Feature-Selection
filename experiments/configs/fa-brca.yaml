@@ -1,0 +1,48 @@
+---
+name: fa-brca
+
+# common params
+base_config:
+  data: 
+    type: file
+    filename: experiments/datasets/functions/fa-brca-sample.npz
+
+  sampling:
+    type: generated
+    seed: seed1
+    Ns: 500
+
+  learner: 
+    name: basic
+    target_order: auto
+    minfs_selection_metric: cardinality>first
+    
+    network:
+      method: generated
+      Ng: 41n
+      node_funcs: [7]
+    
+    optimiser:
+      name:             LAHC
+      guiding_function: e1
+      cost_list_length: 750
+      max_restarts:     0
+      max_iterations:   1000000000
+
+
+# common params
+product:
+  - 
+    - {learner: {optimiser: {guiding_function: e1}}}
+    - {learner: {optimiser: {guiding_function: e2}}}
+    - {learner: {optimiser: {guiding_function: e3}}}
+    - {learner: {optimiser: {guiding_function: e6}}}
+  -
+    - {sampling: {Ne: 96}}
+    - {sampling: {Ne: 64}}
+    - {sampling: {Ne: 48}}
+    - {sampling: {Ne: 32}}
+    - {sampling: {Ne: 24}}
+    - {sampling: {Ne: 16}}
+    - {sampling: {Ne: 8}}
+...

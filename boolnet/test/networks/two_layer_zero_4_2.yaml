@@ -1,0 +1,114 @@
+name: two layer zero
+
+invariant under multiple moves: false
+invariant under single move: true
+
+Ni: 4
+'No': 2
+
+gates:
+- [0, 1, 7]
+- [2, 3, 7]
+- [4, 5, 7]
+
+max depths: [1, 2]
+
+samples: [7, 12, 13, 15]
+
+target function: zero
+
+target matrix:
+  full:
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+
+activation matrix:
+  full:
+  - [0, 0, 0, 0, 1, 1, 0]
+  - [1, 0, 0, 0, 1, 1, 0]
+  - [0, 1, 0, 0, 1, 1, 0]
+  - [1, 1, 0, 0, 0, 1, 1]
+  - [0, 0, 1, 0, 1, 1, 0]
+  - [1, 0, 1, 0, 1, 1, 0]
+  - [0, 1, 1, 0, 1, 1, 0]
+  - [1, 1, 1, 0, 0, 1, 1]
+  - [0, 0, 0, 1, 1, 1, 0]
+  - [1, 0, 0, 1, 1, 1, 0]
+  - [0, 1, 0, 1, 1, 1, 0]
+  - [1, 1, 0, 1, 0, 1, 1]
+  - [0, 0, 1, 1, 1, 0, 1]
+  - [1, 0, 1, 1, 1, 0, 1]
+  - [0, 1, 1, 1, 1, 0, 1]
+  - [1, 1, 1, 1, 0, 0, 1]
+
+error matrix:
+  full:
+  - [1, 0]
+  - [1, 0]
+  - [1, 0]
+  - [1, 1]
+  - [1, 0]
+  - [1, 0]
+  - [1, 0]
+  - [1, 1]
+  - [1, 0]
+  - [1, 0]
+  - [1, 0]
+  - [1, 1]
+  - [0, 1]
+  - [0, 1]
+  - [0, 1]
+  - [0, 1]
+
+instances:
+  sample:
+     - {function: e1, value: 0.625}
+     - {function: e2, value: 0.5}
+     - {function: e3, value: 0.625}
+     - {function: e7, value: 1.0}
+     - {function: e4, value: 1.0}
+     - {function: e5, value: 1.0}
+     - {function: e6, value: 0.625}
+     - {function: correctness, value: 0.0}
+     - {function: e1_mcc, value: -0.25}
+     - {function: per_output_error, value: [0.25, 1.0]}
+     - {function: per_output_mcc, value: [0.5, -1.0]}
+  test:
+     - {function: e1, value: 0.4375}
+     - {function: e2, value: 0.78125}
+     - {function: e3, value: 0.96875}
+     - {function: e7, value: 1.0}
+     - {function: e4, value: 1.0}
+     - {function: e5, value: 1.0}
+     - {function: e6, value: 0.96875}
+     - {function: correctness, value: 0.0}
+     - {function: e1_mcc, value: -0.16666667000000002}
+     - {function: per_output_error, value: [0.91666667, 0.25]}
+     - {function: per_output_mcc, value: [-0.83333334, 0.5]}
+  full:
+     - {function: e1, value: 0.59375}
+     - {function: e2, value: 0.6458333333333334}
+     - {function: e3, value: 0.875}
+     - {function: e7, value: 1.0}
+     - {function: e4, value: 1.0}
+     - {function: e5, value: 1.0}
+     - {function: e6, value: 0.875}
+     - {function: correctness, value: 0.0}
+     - {function: e1_mcc, value: -0.1875}
+     - {function: per_output_error, value: [0.75, 0.4375]}
+     - {function: per_output_mcc, value: [-0.5, 0.125]}
+

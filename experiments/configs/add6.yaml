@@ -1,0 +1,50 @@
+---
+name: add6
+
+# common params
+base_config:
+  data: 
+    type: generated
+    operator: add
+    bits: 6
+
+  sampling:
+    type: generated
+    Ns: 1000
+
+  learner: 
+    name: basic
+    target_order: lsb
+    network:
+      method: generated
+      Ng: 21n
+      node_funcs: [7]
+    optimiser:
+      name:             LAHC
+      cost_list_length: 250
+      max_iterations :  256000000
+      max_restarts:     20
+
+product:
+  - 
+    - {learner: {optimiser: {guiding_function: e1}}}
+    - {learner: {optimiser: {guiding_function: e2}}}
+    - {learner: {optimiser: {guiding_function: e3}}}
+    - {learner: {optimiser: {guiding_function: e6}}}
+    - {learner: {optimiser: {guiding_function: e6}, target_order: auto, minfs_selection_metric: cardinality>first}}
+  -
+    - {sampling: {Ne: 208, seed: seed1}}
+    - {sampling: {Ne: 160, seed: seed2}}
+    - {sampling: {Ne: 112, seed: seed3}}
+    - {sampling: {Ne: 96, seed: seed4}}
+    - {sampling: {Ne: 88, seed: seed5}}
+    - {sampling: {Ne: 80, seed: seed6}}
+    - {sampling: {Ne: 72, seed: seed7}}
+    - {sampling: {Ne: 64, seed: seed8}}
+    - {sampling: {Ne: 56, seed: seed9}}
+    - {sampling: {Ne: 48, seed: seed10}}
+    - {sampling: {Ne: 40, seed: seed11}}
+    - {sampling: {Ne: 32, seed: seed12}}
+    - {sampling: {Ne: 16, seed: seed13}}
+    - {sampling: {Ne: 8, seed: seed14}}
+...

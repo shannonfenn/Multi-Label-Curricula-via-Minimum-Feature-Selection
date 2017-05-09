@@ -1,0 +1,113 @@
+---
+name: 4 input OR
+invariant under single move: no
+invariant under multiple moves: no
+Ni: 4
+'No': 1
+gates: 
+    - [0, 0, 7]
+    - [1, 1, 7]
+    - [2, 2, 7]
+    - [3, 3, 7]
+    - [4, 5, 7]
+    - [6, 7, 7]
+    - [8, 8, 7]
+    - [9, 9, 7]
+    - [10, 11, 7]
+max depths: [4]
+# state can be extracted from full state table
+samples: [2, 6, 7, 8, 9, 10, 12, 14]
+target function: unary_or
+target matrix:
+    full:
+        - [0]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+        - [1]
+activation matrix:   
+# includes input (first Ni cols) and output (last No cols)
+    full:
+    - [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0]
+    - [1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1]
+    - [0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1]
+    - [1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1]
+    - [0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1]
+    - [1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1]
+    - [0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1]
+    - [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1]
+    - [0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1]
+    - [1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1]
+    - [0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1]
+    - [1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1]
+    - [0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1]
+    - [1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1]
+    - [0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1]
+    - [1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1]
+
+error matrix: 
+    full:
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+        - [0]
+instances:
+    sample:
+         - {function: e1, value: 0.0}
+         - {function: e2, value: 0.0}
+         - {function: e3, value: 0.0}
+         - {function: e7, value: 0.0}
+         - {function: e4, value: 0.0}
+         - {function: e5, value: 0.0}
+         - {function: e6, value: 0.0}
+         - {function: correctness, value: 1.0}
+         - {function: e1_mcc, value: 1.0}
+         - {function: per_output_error, value: [0.0]}
+         - {function: per_output_mcc, value: [1.0]}
+    test:
+         - {function: e1, value: 0.0}
+         - {function: e2, value: 0.0}
+         - {function: e3, value: 0.0}
+         - {function: e7, value: 0.0}
+         - {function: e4, value: 0.0}
+         - {function: e5, value: 0.0}
+         - {function: e6, value: 0.0}
+         - {function: correctness, value: 1.0}
+         - {function: e1_mcc, value: 1.0}
+         - {function: per_output_error, value: [0.0]}
+         - {function: per_output_mcc, value: [1.0]}
+    full:
+         - {function: e1, value: 0.0}
+         - {function: e2, value: 0.0}
+         - {function: e3, value: 0.0}
+         - {function: e7, value: 0.0}
+         - {function: e4, value: 0.0}
+         - {function: e5, value: 0.0}
+         - {function: e6, value: 0.0}
+         - {function: correctness, value: 1.0}
+         - {function: e1_mcc, value: 1.0}
+         - {function: per_output_error, value: [0.0]}
+         - {function: per_output_mcc, value: [1.0]}

@@ -1,0 +1,24 @@
+name: 16_bit_last_target
+Ne: 75
+tests:
+  - {order: 'lsb', function: 'e1', value: 0.016666666666666666}
+  # - {order: 'lsb', function: 'e2', value: }
+  # - {order: 'msb', function: 'e2', value: }
+  # - {order: 'lsb', function: 'e3', value: }
+  # - {order: 'msb', function: 'e3', value: }
+  # - {order: 'lsb', function: 'e4', value: }
+  # - {order: 'msb', function: 'e4', value: }
+  # - {order: 'lsb', function: 'e5', value: }
+  # - {order: 'msb', function: 'e5', value: }
+  - {order: 'lsb', function: 'e6', value: 0.016666666666666666}
+  - {order: 'msb', function: 'e6', value: 0.95416666666666672}
+  # - {order: 'lsb', function: 'e7', value: }
+  # - {order: 'msb', function: 'e7', value: }
+  # - {order: 'lsb', function: 'correctness', value: }
+  # - {order: 'lsb', function: 'e1_mcc', value: }
+  # - {order: 'lsb', function: 'e2_mcc', value: }
+  # - {order: 'msb', function: 'e2_mcc', value: }
+  # - {order: 'lsb', function: 'e6_mcc', value: }
+  # - {order: 'msb', function: 'e6_mcc', value: }
+  # - {order: 'lsb', function: 'per_output_error', value: []}
+  # - {order: 'lsb', function: 'per_output_mcc', value: []}

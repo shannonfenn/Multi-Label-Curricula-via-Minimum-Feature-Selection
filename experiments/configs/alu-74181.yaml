@@ -1,0 +1,46 @@
+---
+name: alu74181
+
+# common params
+base_config:
+  data: 
+    type: file
+    filename: experiments/datasets/functions/alu-74181-full.npz
+
+  sampling:
+    type: generated
+    Ns: 100
+
+  learner: 
+    name: basic
+    target_order: auto
+    minfs_selection_metric: cardinality>first
+    
+    network:
+      method: generated
+      Ng: 41n
+      node_funcs: [7]
+    
+    optimiser:
+      name:             LAHC
+      guiding_function: e1
+      cost_list_length: 750
+      max_restarts:     1
+      max_iterations:   1000000000
+
+
+# common params
+product:
+  - 
+    - {learner: {optimiser: {guiding_function: e1}, target_order: lsb}}
+    - {learner: {optimiser: {guiding_function: e2}}}
+    - {learner: {optimiser: {guiding_function: e3}}}
+    - {learner: {optimiser: {guiding_function: e6}}}
+  -
+    - {sampling: {Ne: 384, seed: seed1}}
+    - {sampling: {Ne: 320, seed: seed1}}
+    - {sampling: {Ne: 256, seed: seed2}}
+    - {sampling: {Ne: 192, seed: seed1}}
+    - {sampling: {Ne: 128, seed: seed3}}
+    - {sampling: {Ne: 64, seed: seed4}}
+...

@@ -1,0 +1,51 @@
+---
+name: cmux15
+
+# common params
+base_config:
+  data: 
+    type: file
+    filename: experiments/datasets/functions/cmux15.npz
+
+  sampling:
+    type: generated
+    Ns: 1000
+
+  learner: 
+    name: basic
+    target_order: lsb
+    network:
+      method: generated
+      Ng: 21n
+      node_funcs: [7]
+    optimiser:
+      name:             LAHC
+      cost_list_length: 250
+      max_iterations :  128000000
+      max_restarts:     20
+
+product:
+  - 
+    - {learner: {optimiser: {guiding_function: e1}}}
+    - {learner: {optimiser: {guiding_function: e2}}}
+    - {learner: {optimiser: {guiding_function: e3}}}
+    - {learner: {optimiser: {guiding_function: e6}}}
+    - {learner: {optimiser: {guiding_function: e6}, target_order: auto, minfs_selection_metric: cardinality>random}}
+  -
+    - {sampling: {Ne: 180, seed: seed1}}
+    - {sampling: {Ne: 120, seed: seed2}}
+    - {sampling: {Ne: 112, seed: seed3}} 
+    - {sampling: {Ne: 104, seed: seed4}} 
+    - {sampling: {Ne: 96, seed: seed5}} 
+    - {sampling: {Ne: 88, seed: seed6}} 
+    - {sampling: {Ne: 80, seed: seed7}} 
+    - {sampling: {Ne: 72, seed: seed8}} 
+    - {sampling: {Ne: 64, seed: seed9}} 
+    - {sampling: {Ne: 56, seed: seed10}} 
+    - {sampling: {Ne: 48, seed: seed11}} 
+    - {sampling: {Ne: 40, seed: seed12}} 
+    - {sampling: {Ne: 32, seed: seed13}} 
+    - {sampling: {Ne: 24, seed: seed14}} 
+    - {sampling: {Ne: 16, seed: seed15}} 
+    - {sampling: {Ne: 8, seed: seed16}} 
+...
