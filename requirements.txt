@@ -1,4 +1,4 @@
-Cython==0.23.5
+Cython
 voluptuous
 numpy
 scipy
@@ -6,3 +6,4 @@ progress
 pyyaml
 scoop
 networkx
+Cythongsl

@@ -5,15 +5,9 @@ Code and data for the paper "Multi-Label Curricula via Minimum Feature Selection
 To install requirements from PYPI run:
 ~~~~
 pip install -r requirements.txt
-pip install -r requirements2.txt
 ~~~~
-(This two step process is required due to bugs in the cython-gsl setup file which crash if cython is not already installed.)
 
-Depends on two other projects [bitpacking](https://github.com/shannonfenn/bitpacking) and [minfs](https://github.com/shannonfenn/minfs) which need to be available on the python path. This can be achieved with pip using: 
-
-`pip install -e .`
-
-In the root directory of both projects.
+Depends on two other projects [bitpacking](https://github.com/shannonfenn/bitpacking) and [minfs](https://github.com/shannonfenn/minfs) which need to be available on the python path.
 
 ## Use
 
