@@ -7,7 +7,7 @@ To install requirements from PYPI run:
 pip install -r requirements.txt
 ~~~~
 
-Depends on two other projects [bitpacking](https://github.com/shannonfenn/bitpacking) and [minfs](https://github.com/shannonfenn/minfs) which need to be available on the python path.
+Depends on two other projects [bitpacking (v1.0)](https://github.com/shannonfenn/bitpacking/releases/tag/v1.0) and [minfs (v1.0)](https://github.com/shannonfenn/minfs/releases/tag/v1.0) which need to be available on the python path.
 
 ## Use
 
